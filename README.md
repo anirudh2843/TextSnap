@@ -1,4 +1,4 @@
-##TextSnap: Extract & Summarize
+## TextSnap: Extract & Summarize
 
 **TextSnap** is a cutting-edge project that seamlessly bridges the gap between visual content and concise textual summaries. This innovative solution is designed to streamline the process of extracting meaningful insights from images containing textual information. Whether it's a snapshot of a magazine article, a wiki page, or any other image containing text, **TextSnap** empowers users to swiftly and accurately obtain summaries.
 
