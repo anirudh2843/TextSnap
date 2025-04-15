@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.png" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <title>SnapText Summarizer</title>
+    <style>
+      body {
+        font-family: 'Manrope', sans-serif;
+        background-color: #f7f7f7;
+        color: #333;
+      }
+
+      h1 {
+        color: #007bff;
+        font-weight: 700;
+      }
+
+      .container {
+        margin-top: 50px;
+      }
+
+      .form-control {
+        border-radius: 10px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        font-size: 1rem;
+        width: 100%;
+      }
+
+      .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+        color: white;
+        font-size: 1.1rem;
+        padding: 12px 20px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-success:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+      }
+
+      .result-container {
+        margin-top: 30px;
+        padding: 15px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .result-container p {
+        font-size: 1.2rem;
+        color: #555;
+      }
+
+      .error {
+        color: red;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+      }
+
+      .col-auto {
+        margin-bottom: 15px;
+      }
+
+      img {
+        border-radius: 8px;
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-6 mx-auto mt-5 text-center">
+          <h1 class="mb-5">UPLOAD TO GET A SUMMARY</h1>
+          <form method="post" enctype="multipart/form-data">
+              {{form.hidden_tag()}}
+
+              {% for error in form.photo.errors %}
+                  <div class="error">{{ error }}</div>
+              {% endfor %}
+
+              <div class="row justify-content-center">
+                <div class="col-auto">
+                  {{ form.photo(class="form-control")}}
+                </div>
+                <div class="col-auto">
+                  {{ form.submit(class="btn btn-success")}}
+                </div>
+              </div>
+
+          {% if file_url %}
+            <div class="mt-5">
+              <img src="{{ file_url }}" style="width: 400px;">
+            </div>
+            <div class="result-container">
+              <p>{{result}}</p>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
